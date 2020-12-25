@@ -36,7 +36,6 @@ def get_split(dataset):
         for row in dataset:
             groups = test_split(index, row[index], dataset)
             gini = gini_index(groups, class_values)
-            print( 'X%d < %.3f Gini=%.3f' % ((index+1), row[index], gini))
             if gini < b_score:
                 b_index, b_value, b_score, b_groups = index, row[index], gini, groups
     return { 'index' :b_index, 'value' :b_value, 'groups' :b_groups}
